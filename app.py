@@ -77,8 +77,6 @@ def webhook():
     
     # we don't want to reply to ourselves!
     if data['name'] != 'Dad Bot':
-        #msg = '{}, you sent "{}".'.format(data['name'], data['text'])
-        #send_message(msg)
         
         userText = data['text']
         
@@ -123,9 +121,6 @@ def webhook():
         
         elif userText.startswith('IM '):
             send_message('Hi, {}, I\'m Dad!'.format(userText.replace('IM ', '')))
-        
-        #if 'I\'M' in userText.upper() or ' IM ' in userText.upper() or userText.upper().startswith('IM'):
-        #    send_message('Hi, {}, I\'m Dad!'.format(userText.split()))
             
         elif 'HI DAD' in userText.upper():
             greetStr = random.choice(randomGreetings)
@@ -148,12 +143,6 @@ def send_message(msg):
     
 
 def send_fortune():
-    #url = 'https://api.groupme.com/v3/bots/post'
-
-    #data = {
-    #    'bot_id' : os.getenv('GROUPME_BOT_ID'),
-    #    'text'   : 'got send fortune command!',
-    #}
 
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
