@@ -147,26 +147,26 @@ def send_message(msg):
     json = urlopen(request).read().decode()
     
 def send_fortune():
-    url = 'https://api.groupme.com/v3/bots/post'
-
-    data = {
-        'bot_id' : os.getenv('GROUPME_BOT_ID'),
-        'text'   : 'got send fortune command!',
-    }
-
-    request = Request(url, urlencode(data).encode())
-    json = urlopen(request).read().decode()
-    
-    #print('Json: {}'.format(json))
-    
     #url = 'https://api.groupme.com/v3/bots/post'
 
     #data = {
     #    'bot_id' : os.getenv('GROUPME_BOT_ID'),
-    #    'text'   : json
+    #    'text'   : 'got send fortune command!',
     #}
 
-    #request = Request(url, urlencode(data).encode())
-    #json = urlopen(request).read().decode()
+    request = Request('https://helloacm.com/api/fortune/')
+    json = urlopen(request).read().decode()
+    
+    print('Json: {}'.format(json))
+    
+    url = 'https://api.groupme.com/v3/bots/post'
+
+    data = {
+        'bot_id' : os.getenv('GROUPME_BOT_ID'),
+        'text'   : json
+    }
+
+    request = Request(url, urlencode(data).encode())
+    json = urlopen(request).read().decode()
 
 
