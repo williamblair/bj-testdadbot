@@ -86,6 +86,8 @@ def webhook():
         if userText.upper().startswith('DAD '):
             if userText.split(' ')[1].upper() == 'JOKE':
                 send_message(random.choice(dadJokes))
+            elif userText.split(' ')[1].upper() == 'FORTUNE':
+                send_fortune()
         
         # contains i'm
         elif ' I\'m ' in userText:
@@ -144,3 +146,17 @@ def send_message(msg):
     request = Request(url, urlencode(data).encode())
     json = urlopen(request).read().decode()
     
+def send_fortune():
+    #url = 'https://api.groupme.com/v3/bots/post'
+
+    #data = {
+    #    'bot_id' : os.getenv('GROUPME_BOT_ID'),
+    #    'text'   : 
+    #}
+
+    request = Request('https://helloacm.com/api/fortune/')
+    json = urlopen(request).read().decode()
+
+    print('Json: {}'.format(json))
+
+
