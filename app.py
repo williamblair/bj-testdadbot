@@ -164,8 +164,6 @@ def send_fortune():
     request = Request('https://helloacm.com/api/fortune/', headers=headers)
     json = urlopen(request).read().decode()
     
-    print('Json: {}'.format(json))
-    
     url = 'https://api.groupme.com/v3/bots/post'
 
     data = {
