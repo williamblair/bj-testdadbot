@@ -76,7 +76,7 @@ def webhook():
     data = request.get_json()
     
     # we don't want to reply to ourselves!
-    if data['name'] != 'Dad Bot':
+    if data['name'] != 'dad bot tester':
         #msg = '{}, you sent "{}".'.format(data['name'], data['text'])
         #send_message(msg)
         
