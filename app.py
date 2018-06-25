@@ -76,7 +76,7 @@ def webhook():
     data = request.get_json()
     
     # we don't want to reply to ourselves!
-    if data['name'] != 'dad bot tester':
+    if data['name'] != 'Dad Bot':
         #msg = '{}, you sent "{}".'.format(data['name'], data['text'])
         #send_message(msg)
         
@@ -146,6 +146,7 @@ def send_message(msg):
     request = Request(url, urlencode(data).encode())
     json = urlopen(request).read().decode()
     
+
 def send_fortune():
     #url = 'https://api.groupme.com/v3/bots/post'
 
@@ -168,10 +169,9 @@ def send_fortune():
 
     data = {
         'bot_id' : os.getenv('GROUPME_BOT_ID'),
-        'text'   : json.replace('\\n', '\r\n').replace('"', '').replace('\\t', '    '),
+        'text'   : json.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'),
     }
 
     request = Request(url, urlencode(data).encode())
     json = urlopen(request).read().decode()
-
 
