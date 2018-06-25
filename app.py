@@ -170,7 +170,7 @@ def send_fortune():
 
     data = {
         'bot_id' : os.getenv('GROUPME_BOT_ID'),
-        'text'   : json
+        'text'   : json.replace('\n', '\n\n').replace('"', ''),
     }
 
     request = Request(url, urlencode(data).encode())
