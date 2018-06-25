@@ -83,7 +83,8 @@ def webhook():
         # dad commands perhaps
         if userText.upper().startswith('DAD '):
             if userText.split(' ')[1].upper() == 'JOKE':
-                send_message(random.choice(dadJokes))
+                #send_message(random.choice(dadJokes))
+                send_dadjoke()
             elif userText.split(' ')[1].upper() == 'FORTUNE':
                 send_fortune()
         
@@ -140,7 +141,28 @@ def send_message(msg):
     
     request = Request(url, urlencode(data).encode())
     json = urlopen(request).read().decode()
+
+def send_dadjoke():
+    headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
+       #'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+       'Accept': 'text/plain',
+       'Accept-Charset': 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
+       'Accept-Encoding': 'none',
+       'Accept-Language': 'en-US,en;q=0.8',
+       'Connection': 'keep-alive'}
+
+    request = Request('https://icanhazdadjoke.com/', headers=headers)
+    json = urlopen(request).read().decode()
     
+    url = 'https://api.groupme.com/v3/bots/post'
+
+    data = {
+        'bot_id' : os.getenv('GROUPME_BOT_ID'),
+        'text'   : json.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'),
+    }
+
+    request = Request(url, urlencode(data).encode())
+    json = urlopen(request).read().decode()
 
 def send_fortune():
 
