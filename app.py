@@ -155,7 +155,7 @@ def send_fortune():
     #}
 
     request = Request('https://helloacm.com/api/fortune/')
-    json = urlopen(request).read().decode()
+    json = urlopen(request).read()
     
     print('Json: {}'.format(json))
     
