@@ -151,7 +151,7 @@ def send_fortune():
 
     data = {
         'bot_id' : os.getenv('GROUPME_BOT_ID'),
-        'text'   : 'got send fortune command!'
+        'text'   : 'got send fortune command!',
     }
 
     request = Request(url, urlencode(data).encode())
