@@ -162,7 +162,7 @@ def send_fortune():
        'Connection': 'keep-alive'}
 
     request = Request('https://helloacm.com/api/fortune/', headers=headers)
-    json = urlopen(request).read()
+    json = urlopen(request).read().decode()
     
     print('Json: {}'.format(json))
     
