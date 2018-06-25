@@ -154,7 +154,11 @@ def send_fortune():
     #    'text'   : 'got send fortune command!',
     #}
 
-    request = Request('https://helloacm.com/api/fortune/')
+    headers = {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    }
+
+    request = Request('https://helloacm.com/api/fortune/', headers=headers)
     json = urlopen(request).read()
     
     print('Json: {}'.format(json))
