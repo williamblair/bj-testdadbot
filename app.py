@@ -26,7 +26,7 @@ randomNames = [
     'sonny'
 ]
 
-tripleGayUrl = 'https://i.kym-cdn.com/photos/images/newsfeed/001/315/902/034.png'
+tripleGayUrl = 'https://i.kym-cdn.com/photos/images/original/001/315/902/034.png'
 
 # called whenever the bot recieves a POST request
 @app.route('/', methods=['POST'])
