@@ -26,6 +26,8 @@ randomNames = [
     'sonny'
 ]
 
+tripleGayUrl = 'https://i.kym-cdn.com/photos/images/newsfeed/001/315/902/034.png'
+
 # called whenever the bot recieves a POST request
 @app.route('/', methods=['POST'])
 def webhook():
@@ -45,44 +47,80 @@ def webhook():
         
         # contains i'm
         elif ' I\'m ' in userText:
-            send_message('Hi, {}, I\'m Dad!'.format(userText.split(' I\'m ')[1]))
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                send_message('Hi, {}, I\'m Dad!'.format(userText.split(' I\'m ')[1]))
         
         elif ' I\’m ' in userText:
-            send_message('Hi, {}, I\'m Dad!'.format(userText.split(' I\’m ')[1]))
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                send_message('Hi, {}, I\'m Dad!'.format(userText.split(' I\’m ')[1]))
         
         elif ' i\'m ' in userText:
-            send_message('Hi, {}, I\'m Dad!'.format(userText.split(' i\'m ')[1]))
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                send_message('Hi, {}, I\'m Dad!'.format(userText.split(' i\'m ')[1]))
         
         elif ' Im ' in userText:
-            send_message('Hi, {}, I\'m Dad!'.format(userText.split(' Im ')[1]))
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                send_message('Hi, {}, I\'m Dad!'.format(userText.split(' Im ')[1]))
         
         elif ' im ' in userText:
-            send_message('Hi, {}, I\'m Dad!'.format(userText.split(' im ')[1]))
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                send_message('Hi, {}, I\'m Dad!'.format(userText.split(' im ')[1]))
             
         # starts with im 
         elif userText.startswith('I\'m'):
-            send_message('Hi, {}, I\'m Dad!'.format(userText.replace('I\'m', '')))
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                send_message('Hi, {}, I\'m Dad!'.format(userText.replace('I\'m', '')))
             
         elif userText.startswith('I’m'):
-            send_message('Hi, {}, I\'m Dad!'.format(userText.replace('I’m', '')))
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                send_message('Hi, {}, I\'m Dad!'.format(userText.replace('I’m', '')))
         
         elif userText.startswith('i\'m'):
-            send_message('Hi, {}, I\'m Dad!'.format(userText.replace('i\'m', '')))
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                send_message('Hi, {}, I\'m Dad!'.format(userText.replace('i\'m', '')))
         
         elif userText.startswith('im '):
-            send_message('Hi, {}, I\'m Dad!'.format(userText.replace('im ', '')))
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                send_message('Hi, {}, I\'m Dad!'.format(userText.replace('im ', '')))
         
         elif userText.startswith('Im '):
-            send_message('Hi, {}, I\'m Dad!'.format(userText.replace('Im ', '')))
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                send_message('Hi, {}, I\'m Dad!'.format(userText.replace('Im ', '')))
         
         elif userText.startswith('IM '):
-            send_message('Hi, {}, I\'m Dad!'.format(userText.replace('IM ', '')))
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                send_message('Hi, {}, I\'m Dad!'.format(userText.replace('IM ', '')))
             
         elif 'HI DAD' in userText.upper():
-            greetStr = random.choice(randomGreetings)
-            nameStr = random.choice(randomNames)
-            msg = '{}, {}'.format(greetStr, nameStr)
-            send_message(msg)
+            if 'GAY' in userText.upper():
+                send_image(tripleGayUrl)
+            else:
+                greetStr = random.choice(randomGreetings)
+                nameStr = random.choice(randomNames)
+                msg = '{}, {}'.format(greetStr, nameStr)
+                send_message(msg)
         
     return "ok", 200
 
@@ -140,3 +178,17 @@ def send_fortune():
     request = Request(url, urlencode(data).encode())
     json = urlopen(request).read().decode()
 
+def send_image(url):
+    
+    url = 'https://api.groupme.com/v3/bots/post'
+    
+    data = {
+        'bot_id' : os.getenv('GROUPME_BOT_ID'),
+        'attachments' : [
+            'type' : 'image',
+            'url' : url
+        ]
+    }
+    
+    request = Request(url, urlencode(data).encode())
+    json = urlopen(request).read().decode()
