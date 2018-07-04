@@ -185,8 +185,10 @@ def send_image(url):
     data = {
         'bot_id' : os.getenv('GROUPME_BOT_ID'),
         'attachments' : [
-            'type' : 'image',
-            'url' : url
+            {
+                'type' : 'image',
+                'url' : url
+            }
         ]
     }
     
