@@ -181,7 +181,9 @@ def send_fortune():
 def send_image(url):
     
     url = 'https://api.groupme.com/v3/bots/post'
-    
+
+    println('In send image!')
+
     data = {
         'bot_id' : os.getenv('GROUPME_BOT_ID'),
         'attachments' : [
