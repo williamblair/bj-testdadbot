@@ -145,7 +145,7 @@ def send_fortune():
     request = Request(url, urlencode(data).encode())
     json = urlopen(request).read().decode()
 
-def send_image(url):
+def send_image(imageUrl):
 
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -162,11 +162,10 @@ def send_image(url):
         'attachments' : [
             {
                 'type' : 'image',
-                'url' : urllib.quote(url)
+                'url' : imageUrl
             }
         ]
     }
     
-    #request = Request(url, urlencode(data).encode(), headers=headers)
-    request = Request(url, urlencode(data).encode())
+    request = Request(url, urlencode(data).encode(), headers=headers)
     json = urlopen(request).read().decode()
