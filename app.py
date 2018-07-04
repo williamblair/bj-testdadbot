@@ -166,5 +166,6 @@ def send_image(url):
         ]
     }
     
-    request = Request(url, urlencode(data).encode(), headers=headers)
+    #request = Request(url, urlencode(data).encode(), headers=headers)
+    request = Request(url, urlencode(data).encode())
     json = urlopen(request).read().decode()
