@@ -161,7 +161,7 @@ def send_image(url):
         'attachments' : [
             {
                 'type' : 'image',
-                'url' : url
+                'url' : urllib.quote(url)
             }
         ]
     }
