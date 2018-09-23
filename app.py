@@ -42,7 +42,7 @@ def webhook():
     #print('Is in timeout: ' + str(isInTimeout))
     
     # we don't want to reply to ourselves!
-    if data['name'] != 'dad bot tester'
+    if data['name'] != 'dad bot tester':
     #if data['name'] != 'Dad Bot':
         
         userText = data['text']
