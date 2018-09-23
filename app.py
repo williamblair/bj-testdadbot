@@ -31,7 +31,7 @@ randomNames = [
 os.putenv("DADTIMEOUT", "False")
 
 def changeTimeout(timeoutBool):
-    os.putenv("DADTIMEOUT",(timeoutBool)
+    os.putenv("DADTIMEOUT",str(timeoutBool))
     print('environ: ', os.getenv("DADTIMEOUT"))
 
 # called whenever the bot recieves a POST request
