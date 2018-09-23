@@ -26,10 +26,9 @@ randomNames = [
     'sonny'
 ]
 
-# whether or not dadbot is disabled
-#os.environ["DADTIMEOUT"] = "True"
-#os.putenv("DADTIMEOUT", "False")
-
+# use a file b/c I think this app.py runs only
+# when a message is recieved, so a global variable
+# won't save anything
 def changeTimeout(timeoutBool):
     if (timeoutBool):
         os.system("echo 1 > isTimeout.txt")
@@ -42,9 +41,6 @@ def changeTimeout(timeoutBool):
 def webhook():
     data = request.get_json()
     
-    #global isInTimeout
-    #print('Is in timeout: ' + str(isInTimeout))
-    
     # we don't want to reply to ourselves!
     if data['name'] != 'dad bot tester':
     #if data['name'] != 'Dad Bot':
@@ -53,15 +49,11 @@ def webhook():
         
         # timeout feature
         if userText.upper() == 'SHUT UP DAD':
-            #global isInTimeout
-            #isInTimeout = True
             changeTimeout(True)
             send_message('Ok sport... :(')
             return "ok", 200
         
         elif userText.upper() == 'COME BACK DAD' or userText.upper() == 'DAD COME BACK':
-            #global isInTimeout
-            #isInTimeout = False
             changeTimeout(False)
             greetStr = random.choice(randomGreetings)
             nameStr = random.choice(randomNames)
