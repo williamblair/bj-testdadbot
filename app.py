@@ -31,6 +31,7 @@ os.environ["DADTIMEOUT"] = "True"
 
 def changeTimeout(timeoutBool):
     os.environ["DADTIMEOUT"] = str(timeoutBool)
+    print('environ: ', os.environ["DADTIMEOUT"])
 
 # called whenever the bot recieves a POST request
 @app.route('/', methods=['POST'])
