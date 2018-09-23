@@ -34,7 +34,7 @@ def changeTimeout(timeoutBool):
     if (timeoutBool):
         os.system("echo 1 > isTimeout.txt")
     else:
-        if os.path.isfile("isTimeout.txt"):
+        if os.path.exists("isTimeout.txt"):
             os.system("rm isTimeout.txt")
 
 # called whenever the bot recieves a POST request
@@ -69,8 +69,8 @@ def webhook():
             send_message(msg)
             return "ok", 200
         
-        print('Dad environ:', os.path.isfile("isTimeout.txt"))
-        if not os.path.isfile("isTimeout.txt"):
+        print('Dad environ:', os.path.exists("isTimeout.txt"))
+        if not os.path.exists("isTimeout.txt"):
             # dad commands perhaps
             if userText.upper().startswith('DAD '):
                 if userText.split(' ')[1].upper() == 'JOKE':
