@@ -28,11 +28,14 @@ randomNames = [
 
 # whether or not dadbot is disabled
 #os.environ["DADTIMEOUT"] = "True"
-os.putenv("DADTIMEOUT", "False")
+#os.putenv("DADTIMEOUT", "False")
 
 def changeTimeout(timeoutBool):
-    os.putenv("DADTIMEOUT",str(timeoutBool))
-    print('environ: ', os.getenv("DADTIMEOUT"))
+    if (timeoutBool):
+        os.system("echo 1 > isTimeout.txt")
+    else:
+        if os.path.isfile("isTimeout.txt"):
+            os.system("rm isTimeout.txt")
 
 # called whenever the bot recieves a POST request
 @app.route('/', methods=['POST'])
@@ -66,8 +69,8 @@ def webhook():
             send_message(msg)
             return "ok", 200
         
-        print('Dad environ:', os.getenv("DADTIMEOUT"))
-        if os.getenv("DADTIMEOUT") == "False":
+        print('Dad environ:', os.path.isfile("isTimeout.txt"))
+        if not os.path.isfile("isTimeout.txt"):
             # dad commands perhaps
             if userText.upper().startswith('DAD '):
                 if userText.split(' ')[1].upper() == 'JOKE':
