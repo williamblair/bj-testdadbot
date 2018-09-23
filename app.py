@@ -134,7 +134,8 @@ def send_dadjoke():
        'Accept-Encoding': 'none',
        'Accept-Language': 'en-US,en;q=0.8',
        'Connection': 'keep-alive'}
-
+    
+    print('In send dadjoke!')
     request = Request('https://icanhazdadjoke.com/', headers=headers)
     json = urlopen(request).read().decode()
     
@@ -155,6 +156,8 @@ def send_fortune():
        'Accept-Encoding': 'none',
        'Accept-Language': 'en-US,en;q=0.8',
        'Connection': 'keep-alive'}
+    
+    print('In send fortune!')
     
     request = Request('https://helloacm.com/api/fortune/', headers=headers)
     json = urlopen(request).read().decode()
