@@ -65,6 +65,7 @@ def webhook():
             send_message(msg)
             return "ok", 200
         
+        print('Dad environ:', os.environ["DADTIMEOUT"])
         if os.environ["DADTIMEOUT"] == "False":
             # dad commands perhaps
             if userText.upper().startswith('DAD '):
