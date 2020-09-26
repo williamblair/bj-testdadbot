@@ -39,7 +39,11 @@ winningsonUrls = [
   'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fi1.kym-cdn.com%2Fphotos%2Fimages%2Fnewsfeed%2F001%2F100%2F438%2F907.jpg&f=1&nofb=1',
   'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpics.onsizzle.com%2Fare-ya-winning-son-1621129.png&f=1&nofb=1',
   'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2F4l44szb9p3051.png&f=1&nofb=1',
-  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.kym-cdn.com%2Fphotos%2Fimages%2Ffacebook%2F001%2F390%2F715%2Ff2c.jpg&f=1&nofb=1'
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.kym-cdn.com%2Fphotos%2Fimages%2Ffacebook%2F001%2F390%2F715%2Ff2c.jpg&f=1&nofb=1',
+  'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.imgur.com%2FKQ03nyV.png&f=1&nofb=1',
+  'https://ruinmyweek.com/wp-content/uploads/2020/05/are-ya-winning-son-memes-12.jpg',
+  'https://ruinmyweek.com/wp-content/uploads/2020/05/are-ya-winning-son-memes-4-1024x601.jpg',
+  'https://cdn.ebaumsworld.com/mediaFiles/picture/2543003/86274102.jpg'
 ]
 
 # use a file b/c I think this app.py runs only
