@@ -199,7 +199,7 @@ def send_winningson():
     
     data = {
         'bot_id' : os.getenv('GROUPME_BOT_ID'),
-        'text'   : 'Area ya winning, son?\n' + random.choice(winningsonUrls).replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'),
+        'text'   : 'Are ya winning, son?\n' + random.choice(winningsonUrls).replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'),
     }
 
     request = Request(url, urlencode(data).encode())
