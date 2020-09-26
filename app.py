@@ -81,7 +81,7 @@ def webhook():
         if not os.path.exists("isTimeout.txt"):
 
             # Are ya winning, son?
-            if userText.upper().startswith('AM I WINNING DAD'):
+            if userText.upper().startswith('AM I WINNING DAD') or userText.upper().startswith('AM I WINNING, DAD'):
                 print('Sending winning son!')
                 send_winningson()
 
