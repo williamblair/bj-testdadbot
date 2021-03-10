@@ -160,15 +160,15 @@ def send_dadjoke():
        'Connection': 'keep-alive'}
     
     print('In send dadjoke!')
-    request = Request('https://icanhazdadjoke.com/', headers=headers)
-    json = urlopen(request).read().decode()
-    print('JSON response: ' + json.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'))
+    testRequest = urllib.request.Request('https://icanhazdadjoke.com/', headers=headers)
+    testJson = urlopen(testRequest).read().decode()
+    print('JSON response: ' + testJson.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'))
     
     url = 'https://api.groupme.com/v3/bots/post'
     
     data = {
         'bot_id' : os.getenv('GROUPME_BOT_ID'),
-        'text'   : json.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'),
+        'text'   : testJson.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"')
     }
     
     testRequest = urllib.request.Request(url, urlencode(data).encode(), headers=headers)
