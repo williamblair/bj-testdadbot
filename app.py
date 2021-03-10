@@ -3,6 +3,7 @@ import os
 import json
 import random
 import urllib
+import requests
 
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -173,8 +174,9 @@ def send_dadjoke():
         'text'   : "asdfasdf"#testJson.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"')
     }
     
-    testRequest = urllib.request.Request(url, urlencode(data).encode())
-    testJson = urlopen(testRequest).read().decode()
+    #testRequest = urllib.request.Request(url, urlencode(data).encode())
+    #testJson = urlopen(testRequest).read().decode()
+    r = requests.get(url + '/?bot_id=' + os.getenv('GROUPME_BOT_ID') + ';text=' + 'asdfasdf')
 
 def send_fortune():
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
