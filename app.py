@@ -176,8 +176,7 @@ def send_dadjoke():
     #testRequest = urllib.request.Request(url, urlencode(data).encode())
     #testJson = urlopen(testRequest).read().decode()
     #r = requests.get(url + '/?bot_id=' + os.getenv('GROUPME_BOT_ID') + ';text=' + 'asdfasdf')
-    testcommand = "curl -d \'{\"text\" : \"" + testJson.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"') + 
-                  "\", \"bot_id\" : \"" + os.getenv('GROUPME_BOT_ID') + "\"}\' https://api.groupme.com/v3/bots/post"
+    testcommand = "curl -d \'{\"text\" : \"" + testJson.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"') + "\", \"bot_id\" : \"" + os.getenv('GROUPME_BOT_ID') + "\"}\' https://api.groupme.com/v3/bots/post"
     print('command string: ' + testcommand)
     os.system(testcommand)
 
