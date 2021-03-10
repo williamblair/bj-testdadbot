@@ -165,13 +165,15 @@ def send_dadjoke():
     print('JSON response: ' + testJson.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'))
     
     url = 'https://api.groupme.com/v3/bots/post'
+
+    print('Bot ID: ' + os.getenv('GROUPME_BOT_ID'))
     
     data = {
         'bot_id' : os.getenv('GROUPME_BOT_ID'),
         'text'   : testJson.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"')
     }
     
-    testRequest = urllib.request.Request(url, urlencode(data).encode(), headers=headers)
+    testRequest = urllib.request.Request(url, urlencode(data).encode())
     json = urlopen(testRequest).read().decode()
 
 def send_fortune():
