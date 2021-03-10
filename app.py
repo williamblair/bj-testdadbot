@@ -170,7 +170,7 @@ def send_dadjoke():
     
     data = {
         'bot_id' : os.getenv('GROUPME_BOT_ID'),
-        'text'   : testJson.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"')
+        'text'   : "asdfasdf"#testJson.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"')
     }
     
     testRequest = urllib.request.Request(url, urlencode(data).encode())
