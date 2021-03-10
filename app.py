@@ -3,7 +3,6 @@ import os
 import json
 import random
 import urllib
-import requests
 
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
