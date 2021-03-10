@@ -174,7 +174,7 @@ def send_dadjoke():
     }
     
     testRequest = urllib.request.Request(url, urlencode(data).encode())
-    json = urlopen(testRequest).read().decode()
+    testJson = urlopen(testRequest).read().decode()
 
 def send_fortune():
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
