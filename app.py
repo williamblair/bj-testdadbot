@@ -170,8 +170,8 @@ def send_dadjoke():
         'text'   : json.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'),
     }
     
-    request = Request(url, urlencode(data).encode(), headers=headers)
-    json = urlopen(request).read().decode()
+    testRequest = urllib.request.Request(url, urlencode(data).encode(), headers=headers)
+    json = urlopen(testRequest).read().decode()
 
 def send_fortune():
     headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
@@ -193,8 +193,8 @@ def send_fortune():
         'text'   : json.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'),
     }
 
-    request = Request(url, urlencode(data).encode())
-    json = urlopen(request).read().decode()
+    testRequest = urllib.request.Request(url, urlencode(data).encode())
+    json = urlopen(testRequest).read().decode()
 
 def send_winningson():
     
