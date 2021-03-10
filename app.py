@@ -161,6 +161,7 @@ def send_dadjoke():
     print('In send dadjoke!')
     request = Request('https://icanhazdadjoke.com/', headers=headers)
     json = urlopen(request).read().decode()
+    print('JSON response: ' + json.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'))
     
     url = 'https://api.groupme.com/v3/bots/post'
     
