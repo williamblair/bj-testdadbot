@@ -170,7 +170,7 @@ def send_dadjoke():
         'text'   : json.replace('\\n', ' ').replace('"', '').replace('\\t', '    ').replace('\\', '"'),
     }
     
-    request = Request(url, urlencode(data).encode())
+    request = Request(url, urlencode(data).encode(), headers=headers)
     json = urlopen(request).read().decode()
 
 def send_fortune():
